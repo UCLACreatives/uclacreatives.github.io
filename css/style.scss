@@ -1,11 +1,14 @@
 $Fugue : 'Fugue';
 $Calibre : 'Calibre';
-$Austin-Cryllic : 'Austin Cry';
-$Austin-Cryllic-roman : 'Austin Cry Roman';
+$Austin-Cyrllic : 'Austin Cyr';
+$Austin-Cyrllic-roman : 'Austin Cyr Roman';
+$Brandon-Text: 'Brandon Text';
 
 $white : #F8FBFC;
 $black : #212122;
 $gray : #979EA4;
+$lightGray : #C2C9CE;
+$peach : #F69EAC;
 
 @mixin absolute-center(){
 	position: absolute;
@@ -50,8 +53,23 @@ $gray : #979EA4;
           align-items: $align;
 }
 
+@mixin transform-origin($trans){
+	transform-origin: $trans;
+	-webkit-transform-origin: $trans;
+    -moz-transform-origin: $trans;
+    -ms-transform-origin: $trans;
+}
+
+@mixin transform($trans){
+	transform: $trans;
+	-webkit-transform: $trans;
+    -moz-transform: $trans;
+    -ms-transform: $trans;
+}
+
 body{
 	margin: 0;
+	overflow-x: hidden;
 }
 
 .flex{
@@ -63,7 +81,12 @@ body{
 	font-weight: normal;
 }
 
-.mod-text{
+.austin{
+	font-family: $Austin-Cyrllic;
+	font-weight: normal;
+}
+
+.calibre{
 	font-family: $Calibre;
 	font-weight: normal;
 }
@@ -83,35 +106,74 @@ body{
 	width: 100vw;
 }
 
-.topNav{
-	@include justify-content(space-between);
-	@include align-items(flex-start);
-	margin: 7vh;
-	.mod-text{
-		font-size: 25px;
-		font-weight: normal;
-		color: $white;
-	}
-
-	#projects{
-		font-weight: 500;
-		font-size: 32px;
-
-		div{
-			height: 4.5vh;
-			width: 4.5vh;
-			border-radius: 4.5vh;
-			background-color: $white;
-			margin-bottom: 10px;
-		}
-	}
-
-	.mail{
-		a{
-			margin-left: 125px;
+.activePlus{
+	.plus:hover{
+		div:first-child{
+			transform: rotate(0deg);
 		}
 	}
 }
+
+#projectsLink{
+	color: $white;
+	position: fixed;
+	left: 7vh;
+	top: 7vh;
+	z-index: 3000;
+	font-weight: normal;
+	font-size: 35px;
+	margin: 0;
+
+	.plus{
+		position: relative;
+		height: 23px;
+		width: 23px;
+		div{
+			height: 4px;
+			width: 100%;
+			background-color: $white;
+			position: absolute;
+			transition: .3s ease;
+		}
+		div:first-child{
+			transform: rotate(0deg);
+		}
+		margin-bottom: -5px;
+		cursor: pointer;
+	}
+
+	a{
+		margin: 0;
+		cursor: pointer;
+	}
+
+}
+
+#projectsLink:hover{
+	.plus{
+		div:first-child{
+			transform: rotate(90deg);
+		}
+	}
+}
+
+#mail{
+	position: absolute;
+	font-size: 25px;
+	font-weight: normal;
+	color: $white;
+	right: 7vh;
+	top: 7vh;
+	a{
+		margin-left: 125px;
+	}
+}
+
+// .topNav{
+// 	@include justify-content(space-between);
+// 	@include align-items(flex-start);
+// 	margin: 7vh;
+// }
 
 .bottomNav{
 	@include justify-content(space-between);
@@ -151,5 +213,153 @@ body{
 	h2{
 		font-size: 30px;
 		font-weight: lighter;
+	}
+}
+
+/* PROJECTS */
+
+#projectsPage{
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	background: rgba(33, 33, 34, .85);
+	position: absolute;
+	left: -100%;
+	z-index: 2000;
+	top: 0;
+	transition: .7s ease;
+	overflow: hidden;
+}
+
+.projectsList{
+	border-right: 1px $gray solid;
+	width: 21%;
+	padding-left: 7vh;
+	height: 100%;
+	padding-top: 30vh;
+}
+
+.projectsYear{
+	margin-bottom: 20vh;
+	display: flex;
+	align-items: flex-start;
+	padding-left: 38px;
+	padding-top: 0px;
+	position: relative;
+	.year{
+		color: $white;
+		font-size: 18px;
+		position: absolute;
+	    top: 4px;
+	    right: 100%;
+	    white-space: nowrap;
+	    @include transform-origin(right top);
+	    @include transform(rotate(270deg));
+		font-family: $Austin-Cyrllic-roman;
+		a::before{
+			content: "";
+			width: 100%;
+			height: 1px;
+			background-color: $peach;
+			position: absolute;
+			bottom: 0;
+			@include transform-origin(center);
+			@include transform(scaleX(0));
+			transition: .15s ease;
+		}
+
+		a:visited::before{
+			@include transform(scaleX(1));
+		}
+
+		a:hover{
+			cursor: pointer;
+		}
+
+		a:hover::before{
+			 @include transform(scaleX(1));
+		}
+	}
+
+	ul{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		li{
+			text-decoration: none;
+			a{
+				position: relative;
+				color: $white;
+				font-size: 23px;
+				font-weight: 300;
+			}
+
+
+			a::before{
+				content: "";
+				width: 105%;
+				height: 100%;
+				background-color: $peach;
+				position: absolute;
+				left: -5%;
+				bottom: 0;
+				z-index: -1;
+				@include transform-origin(left);
+				@include transform(scaleX(0));
+				transition: .3s ease;
+			}
+
+			a:hover{
+				cursor: pointer;
+			}
+
+			a:hover::before{
+				 @include transform(scaleX(1));
+			}
+		}
+	}
+}
+
+#projects{
+	overflow-y: scroll;
+}
+
+#projects::-webkit-scrollbar { width: 0 !important }
+#projects{ -ms-overflow-style: none; }
+
+.project{
+	height: 60%;
+	padding: 50px;
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 1px solid $gray;
+	.projectImage{
+		margin-right: 25px;
+		height: 100%;
+		max-width: 35vw;
+		overflow: hidden;
+		img{
+			height: 100%;
+		}
+	}
+
+	.projectDescription{
+		h1{
+			font-family: $Calibre;
+			font-size: 45px;
+			color: $white;
+			margin: 0;
+			margin-bottom: 12px;
+			font-weight: normal;
+			// border-bottom: 2px solid $white;
+		}
+
+		p{
+			font-family: $Brandon-Text;
+			font-size: 20px;
+			color: $lightGray;
+			margin: 0;
+			font-weight: normal;
+		}
 	}
 }

@@ -1,5 +1,6 @@
 body {
-  margin: 0; }
+  margin: 0;
+  overflow-x: hidden; }
 
 .flex {
   display: -webkit-box;
@@ -12,7 +13,11 @@ body {
   font-family: "Fugue";
   font-weight: normal; }
 
-.mod-text {
+.austin {
+  font-family: "Austin Cyr";
+  font-weight: normal; }
+
+.calibre {
   font-family: "Calibre";
   font-weight: normal; }
 
@@ -28,31 +33,47 @@ body {
   height: 100vh;
   width: 100vw; }
 
-.topNav {
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
-  justify-content: space-between;
-  -ms-flex-pack: space-between;
-  -webkit-align-items: flex-start;
-  -moz-align-items: flex-start;
-  -ms-align-items: flex-start;
-  align-items: flex-start;
-  margin: 7vh; }
-  .topNav .mod-text {
-    font-size: 25px;
-    font-weight: normal;
-    color: #F8FBFC; }
-  .topNav #projects {
-    font-weight: 500;
-    font-size: 32px; }
-    .topNav #projects div {
-      height: 4.5vh;
-      width: 4.5vh;
-      border-radius: 4.5vh;
+.activePlus .plus:hover div:first-child {
+  transform: rotate(0deg); }
+
+#projectsLink {
+  color: #F8FBFC;
+  position: fixed;
+  left: 7vh;
+  top: 7vh;
+  z-index: 3000;
+  font-weight: normal;
+  font-size: 35px;
+  margin: 0; }
+  #projectsLink .plus {
+    position: relative;
+    height: 23px;
+    width: 23px;
+    margin-bottom: -5px;
+    cursor: pointer; }
+    #projectsLink .plus div {
+      height: 4px;
+      width: 100%;
       background-color: #F8FBFC;
-      margin-bottom: 10px; }
-  .topNav .mail a {
+      position: absolute;
+      transition: .3s ease; }
+    #projectsLink .plus div:first-child {
+      transform: rotate(0deg); }
+  #projectsLink a {
+    margin: 0;
+    cursor: pointer; }
+
+#projectsLink:hover .plus div:first-child {
+  transform: rotate(90deg); }
+
+#mail {
+  position: absolute;
+  font-size: 25px;
+  font-weight: normal;
+  color: #F8FBFC;
+  right: 7vh;
+  top: 7vh; }
+  #mail a {
     margin-left: 125px; }
 
 .bottomNav {
@@ -95,5 +116,149 @@ body {
   #mainTitle h2 {
     font-size: 30px;
     font-weight: lighter; }
+
+/* PROJECTS */
+#projectsPage {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(33, 33, 34, 0.85);
+  position: absolute;
+  left: -100%;
+  z-index: 2000;
+  top: 0;
+  transition: .7s ease;
+  overflow: hidden; }
+
+.projectsList {
+  border-right: 1px #979EA4 solid;
+  width: 21%;
+  padding-left: 7vh;
+  height: 100%;
+  padding-top: 30vh; }
+
+.projectsYear {
+  margin-bottom: 20vh;
+  display: flex;
+  align-items: flex-start;
+  padding-left: 38px;
+  padding-top: 0px;
+  position: relative; }
+  .projectsYear .year {
+    color: #F8FBFC;
+    font-size: 18px;
+    position: absolute;
+    top: 4px;
+    right: 100%;
+    white-space: nowrap;
+    transform-origin: right top;
+    -webkit-transform-origin: right top;
+    -moz-transform-origin: right top;
+    -ms-transform-origin: right top;
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    font-family: "Austin Cyr Roman"; }
+    .projectsYear .year a::before {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: #F69EAC;
+      position: absolute;
+      bottom: 0;
+      transform-origin: center;
+      -webkit-transform-origin: center;
+      -moz-transform-origin: center;
+      -ms-transform-origin: center;
+      transform: scaleX(0);
+      -webkit-transform: scaleX(0);
+      -moz-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+      transition: .15s ease; }
+    .projectsYear .year a:visited::before {
+      transform: scaleX(1);
+      -webkit-transform: scaleX(1);
+      -moz-transform: scaleX(1);
+      -ms-transform: scaleX(1); }
+    .projectsYear .year a:hover {
+      cursor: pointer; }
+    .projectsYear .year a:hover::before {
+      transform: scaleX(1);
+      -webkit-transform: scaleX(1);
+      -moz-transform: scaleX(1);
+      -ms-transform: scaleX(1); }
+  .projectsYear ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .projectsYear ul li {
+      text-decoration: none; }
+      .projectsYear ul li a {
+        position: relative;
+        color: #F8FBFC;
+        font-size: 23px;
+        font-weight: 300; }
+      .projectsYear ul li a::before {
+        content: "";
+        width: 105%;
+        height: 100%;
+        background-color: #F69EAC;
+        position: absolute;
+        left: -5%;
+        bottom: 0;
+        z-index: -1;
+        transform-origin: left;
+        -webkit-transform-origin: left;
+        -moz-transform-origin: left;
+        -ms-transform-origin: left;
+        transform: scaleX(0);
+        -webkit-transform: scaleX(0);
+        -moz-transform: scaleX(0);
+        -ms-transform: scaleX(0);
+        transition: .3s ease; }
+      .projectsYear ul li a:hover {
+        cursor: pointer; }
+      .projectsYear ul li a:hover::before {
+        transform: scaleX(1);
+        -webkit-transform: scaleX(1);
+        -moz-transform: scaleX(1);
+        -ms-transform: scaleX(1); }
+
+#projects {
+  overflow-y: scroll; }
+
+#projects::-webkit-scrollbar {
+  width: 0 !important; }
+
+#projects {
+  -ms-overflow-style: none; }
+
+.project {
+  height: 60%;
+  padding: 50px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #979EA4; }
+  .project .projectImage {
+    margin-right: 25px;
+    height: 100%;
+    max-width: 35vw;
+    overflow: hidden; }
+    .project .projectImage img {
+      height: 100%; }
+  .project .projectDescription h1 {
+    font-family: "Calibre";
+    font-size: 45px;
+    color: #F8FBFC;
+    margin: 0;
+    margin-bottom: 12px;
+    font-weight: normal; }
+  .project .projectDescription p {
+    font-family: "Brandon Text";
+    font-size: 20px;
+    color: #C2C9CE;
+    margin: 0;
+    font-weight: normal; }
 
 /*# sourceMappingURL=style.css.map */
