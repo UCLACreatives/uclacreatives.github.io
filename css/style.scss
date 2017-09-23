@@ -245,7 +245,6 @@ body{
 	margin-bottom: 20vh;
 	display: flex;
 	align-items: flex-start;
-	padding-left: 38px;
 	padding-top: 0px;
 	position: relative;
 	.year{
@@ -258,6 +257,7 @@ body{
 	    @include transform-origin(right top);
 	    @include transform(rotate(270deg));
 		font-family: $Austin-Cyrllic-roman;
+
 		a::before{
 			content: "";
 			width: 100%;
@@ -285,6 +285,7 @@ body{
 
 	ul{
 		margin: 0;
+		margin-left: 38px;
 		padding: 0;
 		list-style: none;
 		li{
@@ -299,11 +300,11 @@ body{
 
 			a::before{
 				content: "";
-				width: 105%;
+				width: 112%;
 				height: 100%;
 				background-color: $peach;
 				position: absolute;
-				left: -5%;
+				left: -8%;
 				bottom: 0;
 				z-index: -1;
 				@include transform-origin(left);
@@ -361,17 +362,41 @@ body{
 			font-size: 22px;
 			color: $lightGray;
 			margin: 0;
+			margin-bottom: 50px;
 			font-weight: normal;
 		}
 	}
 
 	.demo{
+		display: inline-block;
+		position: relative;
+		perspective: 500px;
+		div{
+			position: absolute;
+			transform-style: preserve-3d;
+			background-color: $white;
+			transition: .4s ease;
+			transform: rotateX(90deg) rotateY(-90deg);
+			z-index: -1;
+			height: 100%;
+			width: 100%;
+		}
 		a{
 			font-family: $Calibre;
 			color: $white;
 			font-size: 17px;
+			transition: .3s;
 		}
-		background-color: $black;
-		transition: .4s ease;
+	}
+
+	.demo:hover{
+		cursor: pointer;
+		div{
+			transform: rotateX(0deg) rotateY(0deg);
+		}
+
+		a{
+			color: $black;
+		}
 	}
 }

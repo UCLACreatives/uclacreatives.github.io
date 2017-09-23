@@ -142,7 +142,6 @@ body {
   margin-bottom: 20vh;
   display: flex;
   align-items: flex-start;
-  padding-left: 38px;
   padding-top: 0px;
   position: relative; }
   .projectsYear .year {
@@ -191,6 +190,7 @@ body {
       -ms-transform: scaleX(1); }
   .projectsYear ul {
     margin: 0;
+    margin-left: 38px;
     padding: 0;
     list-style: none; }
     .projectsYear ul li {
@@ -202,11 +202,11 @@ body {
         font-weight: 300; }
       .projectsYear ul li a::before {
         content: "";
-        width: 105%;
+        width: 112%;
         height: 100%;
         background-color: #F69EAC;
         position: absolute;
-        left: -5%;
+        left: -8%;
         bottom: 0;
         z-index: -1;
         transform-origin: left;
@@ -258,13 +258,31 @@ body {
     font-size: 22px;
     color: #C2C9CE;
     margin: 0;
+    margin-bottom: 50px;
     font-weight: normal; }
   .project .demo {
-    background-color: #212122;
-    transition: .4s ease; }
+    display: inline-block;
+    position: relative;
+    perspective: 500px; }
+    .project .demo div {
+      position: absolute;
+      transform-style: preserve-3d;
+      background-color: #F8FBFC;
+      transition: .4s ease;
+      transform: rotateX(90deg) rotateY(-90deg);
+      z-index: -1;
+      height: 100%;
+      width: 100%; }
     .project .demo a {
       font-family: "Calibre";
       color: #F8FBFC;
-      font-size: 17px; }
+      font-size: 17px;
+      transition: .3s; }
+  .project .demo:hover {
+    cursor: pointer; }
+    .project .demo:hover div {
+      transform: rotateX(0deg) rotateY(0deg); }
+    .project .demo:hover a {
+      color: #212122; }
 
 /*# sourceMappingURL=style.css.map */
