@@ -1,0 +1,99 @@
+body {
+  margin: 0; }
+
+.flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+.title {
+  font-family: "Fugue";
+  font-weight: normal; }
+
+.mod-text {
+  font-family: "Calibre";
+  font-weight: normal; }
+
+#container {
+  height: 100vh;
+  width: 100vw; }
+  #container img {
+    height: 100%; }
+
+/* UI */
+#ui {
+  position: fixed;
+  height: 100vh;
+  width: 100vw; }
+
+.topNav {
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: space-between;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  margin: 7vh; }
+  .topNav .mod-text {
+    font-size: 25px;
+    font-weight: normal;
+    color: #F8FBFC; }
+  .topNav #projects {
+    font-weight: 500;
+    font-size: 32px; }
+    .topNav #projects div {
+      height: 4.5vh;
+      width: 4.5vh;
+      border-radius: 4.5vh;
+      background-color: #F8FBFC;
+      margin-bottom: 10px; }
+  .topNav .mail a {
+    margin-left: 125px; }
+
+.bottomNav {
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: space-between;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-left: 7vh;
+  margin-bottom: 5vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+  .bottomNav .mod-text {
+    font-size: 25px;
+    font-weight: normal;
+    color: #F8FBFC; }
+
+/* TITLE */
+#mainTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #F8FBFC;
+  text-align: center; }
+  #mainTitle h1 {
+    font-size: 13vh;
+    margin: 0; }
+  #mainTitle div {
+    width: 100%;
+    height: 5px;
+    background-color: #F8FBFC;
+    margin: 0;
+    margin-bottom: 27px; }
+  #mainTitle h2 {
+    font-size: 30px;
+    font-weight: lighter; }
+
+/*# sourceMappingURL=style.css.map */

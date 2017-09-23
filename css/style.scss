@@ -1,0 +1,155 @@
+$Fugue : 'Fugue';
+$Calibre : 'Calibre';
+$Austin-Cryllic : 'Austin Cry';
+$Austin-Cryllic-roman : 'Austin Cry Roman';
+
+$white : #F8FBFC;
+$black : #212122;
+$gray : #979EA4;
+
+@mixin absolute-center(){
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin justify-content($justify) {
+  -webkit-justify-content: $justify;
+     -moz-justify-content: $justify;
+      -ms-justify-content: $justify;
+          justify-content: $justify;
+            -ms-flex-pack: $justify;
+}
+
+// Packing Flex Lines
+// - applies to: multi-line flex containers
+// flex-start | flex-end | center | space-between | space-around | stretch 
+@mixin align-content($align) {
+  -webkit-align-content: $align;
+     -moz-align-content: $align;
+      -ms-align-content: $align;
+          align-content: $align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch 
+@mixin align-items($align) {
+  -webkit-align-items: $align;
+     -moz-align-items: $align;
+      -ms-align-items: $align;
+          align-items: $align;
+}
+
+body{
+	margin: 0;
+}
+
+.flex{
+	@include flexbox();
+}
+
+.title{
+	font-family: $Fugue;
+	font-weight: normal;
+}
+
+.mod-text{
+	font-family: $Calibre;
+	font-weight: normal;
+}
+
+#container{
+	height: 100vh;
+	width: 100vw;
+	img{
+		height: 100%;
+	}
+}
+
+/* UI */
+#ui{
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+}
+
+.topNav{
+	@include justify-content(space-between);
+	@include align-items(flex-start);
+	margin: 7vh;
+	.mod-text{
+		font-size: 25px;
+		font-weight: normal;
+		color: $white;
+	}
+
+	#projects{
+		font-weight: 500;
+		font-size: 32px;
+
+		div{
+			height: 4.5vh;
+			width: 4.5vh;
+			border-radius: 4.5vh;
+			background-color: $white;
+			margin-bottom: 10px;
+		}
+	}
+
+	.mail{
+		a{
+			margin-left: 125px;
+		}
+	}
+}
+
+.bottomNav{
+	@include justify-content(space-between);
+	@include align-items(center);
+	margin-left: 7vh;
+	margin-bottom: 5vh;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	.mod-text{
+		font-size: 25px;
+		font-weight: normal;
+		color: $white;
+	}
+}
+
+/* TITLE */
+
+#mainTitle{
+	@include absolute-center;
+	color: $white;
+	text-align: center;
+	h1{
+		font-size: 13vh;
+		margin: 0;
+	}
+
+	div{
+		width: 100%;
+		height: 5px;
+		background-color: $white;
+		margin: 0;
+		margin-bottom: 27px;
+	}
+
+	h2{
+		font-size: 30px;
+		font-weight: lighter;
+	}
+}
