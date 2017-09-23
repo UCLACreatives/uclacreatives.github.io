@@ -227,8 +227,9 @@ body{
 	left: -100%;
 	z-index: 2000;
 	top: 0;
-	transition: .7s ease;
+	transition: left .7s, opacity .4s;
 	overflow: hidden;
+	opacity: 0;
 }
 
 .projectsList{

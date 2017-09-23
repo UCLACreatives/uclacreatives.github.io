@@ -127,8 +127,9 @@ body {
   left: -100%;
   z-index: 2000;
   top: 0;
-  transition: .7s ease;
-  overflow: hidden; }
+  transition: left .7s, opacity .4s;
+  overflow: hidden;
+  opacity: 0; }
 
 .projectsList {
   border-right: 1px #979EA4 solid;
