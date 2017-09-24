@@ -15,3 +15,4 @@ function toggleProjectsPage(){
 }
 
 document.getElementById('projectsLink').addEventListener('mousedown', toggleProjectsPage);
+
