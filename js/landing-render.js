@@ -28,10 +28,10 @@ function init() {
 	var width = window.innerWidth, height = window.innerHeight;
 	camera = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 1000 );
 	camera.position.set(0, 0, 1);
-	controls = new THREE.OrbitControls(camera, renderer.domElement);
-	controls.rotateSpeed = 2.0;
-	controls.panSpeed = 0.8;
-	controls.zoomSpeed = 1.5;
+	// controls = new THREE.OrbitControls(camera, renderer.domElement);
+	// controls.rotateSpeed = 2.0;
+	// controls.panSpeed = 0.8;
+	// controls.zoomSpeed = 1.5;
 
 	scene = new THREE.Scene();
 
@@ -81,7 +81,7 @@ function update(){
 	time = new Date().getTime() - startTime;
 	shapeMat.uniforms['time'].value += .00025;
 	camera.lookAt(scene.position);
-	controls.update();
+	// controls.update();
 }
 
 function animate(){
