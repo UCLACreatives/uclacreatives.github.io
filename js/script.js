@@ -37,7 +37,7 @@ function onScroll(){
 		var bottom = element.getBoundingClientRect().bottom;
 		var color;
 		if (bottom <=mainBottom){
-			color = '#F8FBFC';
+			color = '#222428';
 			leftNav.classList.remove('whoActive');
 			leftNav.classList.remove('aboutActive');
 		}
@@ -50,7 +50,7 @@ function onScroll(){
 			}
 		}
 		else if (bottom >= aboutTop){
-			color = '#212122';
+			color = '#222428';
 
 			if (ui[i] == aboutButton){
 				leftNav.classList.remove('whoActive');

@@ -44,6 +44,9 @@ body {
 .white {
   color: #F8FBFC; }
 
+.black {
+  color: #2e3035; }
+
 /* UI */
 .ui {
   transition: all .25s ease;
@@ -69,7 +72,7 @@ body {
     #projectsLink .plus div {
       height: 4px;
       width: 100%;
-      background-color: #F8FBFC;
+      background-color: #2e3035;
       position: absolute;
       transition: .3s ease; }
     #projectsLink .plus div:first-child {
@@ -146,7 +149,7 @@ body {
   right: 7vh;
   top: 7vh; }
   #mail a {
-    color: #F8FBFC;
+    color: #2e3035;
     margin-left: 125px; }
   #mail a:hover {
     cursor: pointer; }
@@ -231,7 +234,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #F8FBFC;
+  color: #2e3035;
   text-align: center; }
   #mainTitle h1 {
     font-size: 100px;
@@ -239,7 +242,7 @@ body {
   #mainTitle div {
     width: 100%;
     height: 5px;
-    background-color: #F8FBFC;
+    background-color: #2e3035;
     margin: 0;
     margin-bottom: 27px; }
   #mainTitle h2 {
@@ -413,7 +416,7 @@ body {
     .project .demo:hover div {
       transform: rotateX(0deg) rotateY(0deg); }
     .project .demo:hover a {
-      color: #212122; }
+      color: #2e3035; }
 
 /* ABOUT US */
 #about, #who {
@@ -439,12 +442,12 @@ body {
   #about .main, #who .main {
     text-align: center; }
     #about .main .title, #who .main .title {
-      color: #212122;
+      color: #2e3035;
       margin: auto;
       display: inline-block;
       font-size: 67px;
       text-align: center;
-      border-bottom: 4px #212122 solid;
+      border-bottom: 4px #2e3035 solid;
       margin-bottom: 40px; }
     #about .main .bodyText, #who .main .bodyText {
       text-align: justify;

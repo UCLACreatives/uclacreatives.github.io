@@ -5,7 +5,7 @@ $Austin-Cyrllic-roman : 'Austin Cyr Roman';
 $Brandon-Text: 'Brandon Text';
 
 $white : #F8FBFC;
-$black : #212122;
+$black : #2e3035;
 $gray : #979EA4;
 $lightGray : #C2C9CE;
 $peach : #F69EAC;
@@ -135,6 +135,10 @@ body{
 	color: $white;
 }
 
+.black{
+	color: $black;
+}
+
 /* UI */
 
 .ui{
@@ -167,7 +171,7 @@ body{
 		div{
 			height: 4px;
 			width: 100%;
-			background-color: $white;
+			background-color: $black;
 			position: absolute;
 			transition: .3s ease;
 		}
@@ -256,7 +260,7 @@ body{
 	right: 7vh;
 	top: 7vh;
 	a{	
-		color: $white;
+		color: $black;
 		margin-left: 125px;
 	}
 	a:hover{
@@ -345,7 +349,7 @@ body{
 #mainTitle{
 	pointer-events: none;
 	@include absolute-center;
-	color: $white;
+	color: $black;
 	text-align: center;
 	h1{
 		font-size: 100px;
@@ -355,7 +359,7 @@ body{
 	div{
 		width: 100%;
 		height: 5px;
-		background-color: $white;
+		background-color: $black;
 		margin: 0;
 		margin-bottom: 27px;
 	}

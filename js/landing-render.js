@@ -48,7 +48,7 @@ function init() {
 
 	var texture = new THREE.TextureLoader().load('assets/img/render.png');
 	texture.wrapT = texture.wrapS = THREE.RepeatWrapping;
-	var geom = new THREE.PlaneBufferGeometry(1, 2, 256, 256);
+	var geom = new THREE.PlaneBufferGeometry(1, 2, 512, 512);
 	// var geom = new THREE.SphereBufferGeometry(1, 1, 256, 256);
 
 	shapeMat = new THREE.ShaderMaterial({
