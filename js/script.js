@@ -92,7 +92,7 @@ $(document).ready(function(){
 
 	  $('#projects').stop().animate({
 	      'scrollTop': $target.offset().top
-	  }, 400, 'swing', function () {
+	  }, 800, 'swing', function () {
 	      window.location.hash = target;
 	  });
 	});
