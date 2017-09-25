@@ -1,5 +1,10 @@
 var projectsPage = document.getElementById('projectsPage');
 var projectsPageOn = 0;
+var ui = document.getElementsByClassName('ui');
+var about = document.getElementById('about');
+var projectsLink = document.getElementById('projectsLink');
+
+ui[3].style.color = '#F8FBFC';
 
 function toggleProjectsPage(){
 	if (!projectsPageOn){
@@ -16,3 +21,49 @@ function toggleProjectsPage(){
 
 document.getElementById('projectsLink').addEventListener('mousedown', toggleProjectsPage);
 
+function onScroll(){
+	var about = document.getElementById('about');
+	var who = document.getElementById('who');
+	var main = document.getElementById('container');
+
+	var mainBottom = main.getBoundingClientRect().bottom;
+	var aboutTop = about.getBoundingClientRect().top;
+	var whoTop = who.getBoundingClientRect().top;
+
+	var leftNav = document.getElementsByClassName('leftNav')[0];
+	var aboutButton = ui[4];
+	var whoButton = ui[5];
+
+	for (var i=0; i<ui.length; i++){
+		var element = ui[i];
+		var bottom = element.getBoundingClientRect().bottom;
+		var color;
+		if (bottom <=mainBottom){
+			color = '#F8FBFC';
+			leftNav.classList.remove('whoActive');
+			leftNav.classList.remove('aboutActive');
+		}
+		else if (bottom >= whoTop){
+			color = '#F8FBFC';
+
+			if (ui[i] == whoButton){
+				leftNav.classList.remove('aboutActive');
+				leftNav.classList.add('whoActive');
+			}
+		}
+		else if (bottom >= aboutTop){
+			color = '#212122';
+
+			if (ui[i] == aboutButton){
+				leftNav.classList.remove('whoActive');
+				leftNav.classList.add('aboutActive');
+			}
+		}
+		element.style.color = color;
+
+		if (i==1 || i ==2)
+			element.style.backgroundColor = color;
+	}
+}
+
+window.addEventListener('scroll', onScroll);

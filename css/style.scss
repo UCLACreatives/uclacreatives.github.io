@@ -10,10 +10,15 @@ $gray : #979EA4;
 $lightGray : #C2C9CE;
 $peach : #F69EAC;
 $darkBlue : #101723;
+$blue : #ACD8F2;
 
 h1, h2, header, p, a{
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+a{
+	text-decoration: none;
 }
 
 @mixin absolute-center(){
@@ -80,6 +85,13 @@ h1, h2, header, p, a{
 	flex-direction: $value;
 }
 
+@mixin transition($value){
+	-webkit-transition: $value;
+	-moz-transition: $value;
+	-ms-transition: $value;
+	transition: $value;
+}
+
 body{
 	margin: 0;
 	overflow-x: hidden;
@@ -126,6 +138,7 @@ body{
 /* UI */
 
 .ui{
+	transition: color .3s ease;
 	z-index: 2000;
 }
 
@@ -178,6 +191,21 @@ body{
 
 }
 
+.aboutActive{
+	div:first-child{
+		a::before{
+			@include transform(scaleX(1));
+		}
+	}
+}
+
+.whoActive{
+	div:nth-child(2){
+		a::before{
+			@include transform(scaleX(1));
+		}
+	}
+}
 .leftNav{
 	// @include flexbox();
 	// @include align-items(center);
@@ -186,6 +214,7 @@ body{
 	position: fixed;
 	left: 3vh;
 	top: 50%;
+	z-index: 2000;
 	div{
 		@include transform(rotate(270deg));
 		margin-bottom: 125px;
@@ -226,8 +255,13 @@ body{
 	// color: $white;
 	right: 7vh;
 	top: 7vh;
-	a{
+	a{	
+		// color: $white;
 		margin-left: 125px;
+	}
+	a:hover{
+		cursor: pointer;
+		
 	}
 }
 
@@ -253,6 +287,28 @@ body{
 	}
 }
 
+.socialLinks{
+	display: inline-block;
+	position: fixed;
+	right: 7vh;
+	bottom: 3vh;
+	a{
+		margin-left: 40px;
+		text-decoration: none !important;
+		background: none;
+		color: inherit;
+		i{
+			color: inherit;
+			@include transition(none !important);
+			background: transparent !important;
+		}
+	}
+
+	a:hover{
+		cursor: pointer;
+		color: $blue;
+	}
+}
 /* TITLE */
 
 #mainTitle{
