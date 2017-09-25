@@ -139,6 +139,14 @@ body{
 	color: $black;
 }
 
+.lightGray{
+	color: $lightGray;
+}
+
+.gray{
+	color: $gray;
+}
+
 /* UI */
 
 .ui{
@@ -448,7 +456,6 @@ body{
 			text-decoration: none;
 			a{
 				position: relative;
-				color: $white;
 				font-size: 23px;
 				font-weight: 300;
 			}
@@ -487,7 +494,6 @@ body{
 #projects{ -ms-overflow-style: none; }
 
 .project{
-	width: 100%;
 	padding: 50px;
 
 	// border-bottom: 1px $gray solid;
@@ -496,7 +502,7 @@ body{
 		// width: 100%;
 		overflow: hidden;
 		img{
-			width: 100%;
+			width: auto;
 			max-height: 60vh;
 		}
 	}

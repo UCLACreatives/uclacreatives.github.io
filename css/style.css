@@ -47,6 +47,12 @@ body {
 .black {
   color: #2e3035; }
 
+.lightGray {
+  color: #C2C9CE; }
+
+.gray {
+  color: #979EA4; }
+
 /* UI */
 .ui {
   transition: all .25s ease;
@@ -330,7 +336,6 @@ body {
       text-decoration: none; }
       .projectsYear ul li a {
         position: relative;
-        color: #F8FBFC;
         font-size: 23px;
         font-weight: 300; }
       .projectsYear ul li a::before {
@@ -369,13 +374,12 @@ body {
   -ms-overflow-style: none; }
 
 .project {
-  width: 100%;
   padding: 50px; }
   .project .projectImage {
     margin-bottom: 25px;
     overflow: hidden; }
     .project .projectImage img {
-      width: 100%;
+      width: auto;
       max-height: 60vh; }
   .project .projectDescription h1 {
     font-family: "Calibre";
