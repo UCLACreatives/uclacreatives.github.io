@@ -288,16 +288,23 @@ body{
 }
 
 .socialLinks{
-	display: inline-block;
+	@include flexbox();
+	@include align-items(center);
 	position: fixed;
 	right: 7vh;
 	bottom: 3vh;
+	.line{
+		height: 1px;
+		width: 150px;
+		background-color: $white;
+	}
 	a{
 		margin-left: 40px;
 		text-decoration: none !important;
 		background: none;
 		color: inherit;
-		i{
+		font-size: 20px;
+		i{	
 			color: inherit;
 			@include transition(none !important);
 			background: transparent !important;
@@ -309,6 +316,29 @@ body{
 		color: $blue;
 	}
 }
+
+.rightLine{
+	position: fixed;
+	right: 7vh;
+	bottom: 90px;
+	width: 20px;
+	.line{
+		right: 7vh;
+		margin: auto;
+		height: 100px;
+		width: 1px;
+		background-color: $white;
+	}
+	.circle{
+		margin: auto;
+		margin-bottom: 40px;
+		background-color: $white;
+		height: 5px;
+		width: 5px;
+		border-radius: 5px;
+	}
+}
+
 /* TITLE */
 
 #mainTitle{
