@@ -3,6 +3,10 @@ var angle = 0;
 var clock = new THREE.Clock();
 var time; var startTime = new Date().getTime();
 
+var mouseX = 0, mouseY = 0;
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+
 var box;
 var shape;
 
@@ -29,6 +33,7 @@ function init() {
 	camera = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 1000 );
 	camera.position.set(0, 0, 1);
 	// controls = new THREE.OrbitControls(camera, renderer.domElement);
+	// controls.autoRotate = true;
 	// controls.rotateSpeed = 2.0;
 	// controls.panSpeed = 0.8;
 	// controls.zoomSpeed = 1.5;
@@ -48,7 +53,7 @@ function init() {
 
 	var texture = new THREE.TextureLoader().load('assets/img/render.png');
 	texture.wrapT = texture.wrapS = THREE.RepeatWrapping;
-	var geom = new THREE.PlaneBufferGeometry(1, 2, 512, 512);
+	var geom = new THREE.PlaneBufferGeometry(1, 2, 256, 256);
 	// var geom = new THREE.SphereBufferGeometry(1, 1, 256, 256);
 
 	shapeMat = new THREE.ShaderMaterial({
@@ -80,12 +85,13 @@ function init() {
 function update(){
 	time = new Date().getTime() - startTime;
 	shapeMat.uniforms['time'].value += .00025;
-	camera.lookAt(scene.position);
+	// camera.lookAt(scene.position);
 	// controls.update();
 }
 
 function animate(){
 	update();
+	camera.lookAt( scene.position );
 	renderer.render(scene, camera);
 	window.requestAnimationFrame(animate);
 }

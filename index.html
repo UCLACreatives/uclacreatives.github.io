@@ -295,7 +295,7 @@
 	            (d - b) * u.x * u.y;
 	}
 
-	#define OCTAVES 4
+	#define OCTAVES 3
 	float fbm (in vec2 st) {
 	    // Initial values
 	    float value = 0.0;
@@ -330,7 +330,6 @@
 </script>
 
 <script type="fsh" id="fragmentShader">
-	uniform sampler2D texture;
 	uniform float time;
 
 	varying vec2 vUv;
@@ -343,6 +342,7 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="bower_components/three.js/build/three.min.js"></script>
+<!-- <script src="bower_components/three.js/examples/js/controls/OrbitControls.js"></script> -->
 <script src="js/script.js"></script>
 <script src="js/landing-render.js"></script>
 </html>
