@@ -77,11 +77,12 @@ body {
       transition: .3s ease; }
     #projectsLink .plus div:first-child {
       transform: rotate(0deg); }
-  #projectsLink .plus:hover div:first-child {
-    transform: rotate(90deg); }
   #projectsLink a {
     margin: 0;
     cursor: pointer; }
+
+#projectsLink:hover .plus div:first-child {
+  transform: rotate(90deg); }
 
 .aboutActive div:first-child a::before {
   transform: scaleX(1);
@@ -189,15 +190,14 @@ body {
   .socialLinks .line {
     height: 1px;
     width: 150px;
-    background-color: #F8FBFC; }
+    background-color: #2e3035; }
   .socialLinks a {
     margin-left: 40px;
     text-decoration: none !important;
     background: none;
-    color: inherit;
     font-size: 20px; }
     .socialLinks a i {
-      color: inherit;
+      color: #2e3035;
       -webkit-transition: none !important;
       -moz-transition: none !important;
       -ms-transition: none !important;
@@ -218,11 +218,11 @@ body {
     margin: auto;
     height: 100px;
     width: 1px;
-    background-color: #F8FBFC; }
+    background-color: #2e3035; }
   .rightLine .circle {
     margin: auto;
     margin-bottom: 40px;
-    background-color: #F8FBFC;
+    background-color: #2e3035;
     height: 5px;
     width: 5px;
     border-radius: 5px; }
@@ -279,7 +279,7 @@ body {
   position: relative; }
   .projectsYear .year {
     color: #F8FBFC;
-    font-size: 18px;
+    font-size: 20px;
     position: absolute;
     top: 4px;
     right: 100%;
@@ -292,7 +292,7 @@ body {
     -webkit-transform: rotate(270deg);
     -moz-transform: rotate(270deg);
     -ms-transform: rotate(270deg);
-    font-family: "Austin Cyr Roman"; }
+    font-family: "Calibre"; }
     .projectsYear .year a::before {
       content: "";
       width: 100%;

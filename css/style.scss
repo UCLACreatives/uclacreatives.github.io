@@ -182,17 +182,19 @@ body{
 		cursor: pointer;
 	}
 
-	.plus:hover{
-		div:first-child{
-			transform: rotate(90deg);
-		}
-	}
-
 	a{
 		margin: 0;
 		cursor: pointer;
 	}
 
+}
+
+#projectsLink:hover{
+	.plus{
+		div:first-child{
+			transform: rotate(90deg);
+		}
+	}
 }
 
 .aboutActive{
@@ -300,16 +302,15 @@ body{
 	.line{
 		height: 1px;
 		width: 150px;
-		background-color: $white;
+		background-color: $black;
 	}
 	a{
 		margin-left: 40px;
 		text-decoration: none !important;
 		background: none;
-		color: inherit;
 		font-size: 20px;
 		i{	
-			color: inherit;
+			color: $black;
 			@include transition(none !important);
 			background: transparent !important;
 		}
@@ -332,12 +333,12 @@ body{
 		margin: auto;
 		height: 100px;
 		width: 1px;
-		background-color: $white;
+		background-color: $black;
 	}
 	.circle{
 		margin: auto;
 		margin-bottom: 40px;
-		background-color: $white;
+		background-color: $black;
 		height: 5px;
 		width: 5px;
 		border-radius: 5px;
@@ -404,14 +405,14 @@ body{
 	position: relative;
 	.year{
 		color: $white;
-		font-size: 18px;
+		font-size: 20px;
 		position: absolute;
 	    top: 4px;
 	    right: 100%;
 	    white-space: nowrap;
 	    @include transform-origin(right top);
 	    @include transform(rotate(270deg));
-		font-family: $Austin-Cyrllic-roman;
+		font-family: $Calibre;
 
 		a::before{
 			content: "";

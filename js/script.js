@@ -5,12 +5,19 @@ var about = document.getElementById('about');
 var projectsLink = document.getElementById('projectsLink');
 
 function toggleProjectsPage(){
+	var bars = projectsLink.getElementsByClassName('plus')[0].getElementsByTagName('div');
 	if (!projectsPageOn){
 		projectsPage.style.left = 0;
 		projectsPage.style.opacity = 1;
 		projectsPageOn = 1;
+		projectsLink.style.color = '#F8FBFC';
+		bars[0].style.backgroundColor = '#F8FBFC';
+		bars[1].style.backgroundColor = '#F8FBFC';
 	}
 	else{
+		projectsLink.style.color = '#222428';
+		bars[0].style.backgroundColor = '#222428';
+		bars[1].style.backgroundColor = '#222428';
 		projectsPage.style.left = -100 + "%";
 		projectsPage.style.opacity = 0;
 		projectsPageOn = 0;
