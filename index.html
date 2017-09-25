@@ -81,19 +81,19 @@
 				<div>
 					<ul>
 						<li>
-							<a class="calibre">Visualizing LA</a>
+							<a class="calibre" href="#visualizingla">Visualizing LA</a>
 						</li>
 						<li>
-							<a class="calibre">Synaesthetic</a>
+							<a class="calibre" href="#synaesthetic">Synaesthetic</a>
 						</li>
 						<li>
-							<a class="calibre">A Day In LA</a>
+							<a class="calibre" href="#adayinla">A Day In LA</a>
 						</li>
 						<li>
-							<a class="calibre">Unity VR</a>
+							<a class="calibre" href="#unityvr">Unity VR</a>
 						</li>
 						<li>
-							<a class="calibre">Physical States</a>
+							<a class="calibre" href="#physicalstates">Physical States</a>
 						</li>
 					</ul>
 				</div>
@@ -129,7 +129,21 @@
 		</div>
 
 		<div id="projects">
-			<div class="project">
+			<div class="project" id="visualizingla">
+				<div class="projectImage">
+					<img src="assets/img/visualizingla.png"/>
+				</div>
+				<div class="projectDescription">
+					<h1>Visualizing LA</h1>
+					<p>A project aimed to tell the story of LA's transportation.</p>
+				</div>
+				<div class="demo">
+					<div></div>
+					<a href="http://visualizingla.com/">LINK</a>
+				</div>
+			</div>
+
+			<div class="project" id="synaesthetic">
 				<div class="projectImage">
 					<img src="assets/img/synaesthetic.png"/>
 				</div>
@@ -143,12 +157,40 @@
 				</div>
 			</div>
 
-			<div class="project">
+			<div class="project" id="adayinla">
 				<div class="projectImage">
 					<img src="assets/img/synaesthetic.png"/>
 				</div>
 				<div class="projectDescription">
-					<h1>Synaesthetic</h1>
+					<h1>A Day in LA</h1>
+					<p>Music visualizer.</p>
+				</div>
+				<div class="demo">
+					<div></div>
+					<a>LINK</a>
+				</div>
+			</div>
+
+			<div class="project" id="unityvr">
+				<div class="projectImage">
+					<img src="assets/img/synaesthetic.png"/>
+				</div>
+				<div class="projectDescription">
+					<h1>Unity VR</h1>
+					<p>Music visualizer.</p>
+				</div>
+				<div class="demo">
+					<div></div>
+					<a>LINK</a>
+				</div>
+			</div>
+
+			<div class="project" id="physicalstates">
+				<div class="projectImage">
+					<img src="assets/img/synaesthetic.png"/>
+				</div>
+				<div class="projectDescription">
+					<h1>Physical States</h1>
 					<p>Music visualizer.</p>
 				</div>
 				<div class="demo">
@@ -218,7 +260,7 @@
 		</div>
 	</div>
 </body>
-<script type="vsh" id="vertexShader">
+<!-- <script type="vsh" id="vertexShader">
 	uniform float time;
 	uniform float speed;
 	uniform sampler2D texture;
@@ -298,7 +340,8 @@
 		gl_FragColor = vec4(color.rgb, .9);
 	}
 
-</script>
+</script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="bower_components/three.js/build/three.min.js"></script>
 <script src="js/script.js"></script>
 <script src="js/landing-render.js"></script>
