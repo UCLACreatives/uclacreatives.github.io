@@ -138,7 +138,7 @@ body{
 /* UI */
 
 .ui{
-	transition: color .3s ease;
+	transition: all .25s ease;
 	z-index: 2000;
 }
 
@@ -252,11 +252,11 @@ body{
 	position: fixed;
 	font-size: 25px;
 	font-weight: normal;
-	// color: $white;
+	z-index: 2000;
 	right: 7vh;
 	top: 7vh;
 	a{	
-		// color: $white;
+		color: $white;
 		margin-left: 125px;
 	}
 	a:hover{
@@ -322,6 +322,7 @@ body{
 	right: 7vh;
 	bottom: 90px;
 	width: 20px;
+	z-index: 2000;
 	.line{
 		right: 7vh;
 		margin: auto;

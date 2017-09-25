@@ -4,8 +4,6 @@ var ui = document.getElementsByClassName('ui');
 var about = document.getElementById('about');
 var projectsLink = document.getElementById('projectsLink');
 
-ui[3].style.color = '#F8FBFC';
-
 function toggleProjectsPage(){
 	if (!projectsPageOn){
 		projectsPage.style.left = 0;
@@ -61,7 +59,7 @@ function onScroll(){
 		}
 		element.style.color = color;
 
-		if (i==1 || i ==2)
+		if (element.classList.contains('bgColor'))
 			element.style.backgroundColor = color;
 	}
 }

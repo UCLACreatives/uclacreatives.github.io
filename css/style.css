@@ -46,7 +46,7 @@ body {
 
 /* UI */
 .ui {
-  transition: color .3s ease;
+  transition: all .25s ease;
   z-index: 2000; }
 
 .activePlus .plus:hover div:first-child {
@@ -142,9 +142,11 @@ body {
   position: fixed;
   font-size: 25px;
   font-weight: normal;
+  z-index: 2000;
   right: 7vh;
   top: 7vh; }
   #mail a {
+    color: #F8FBFC;
     margin-left: 125px; }
   #mail a:hover {
     cursor: pointer; }
@@ -206,7 +208,8 @@ body {
   position: fixed;
   right: 7vh;
   bottom: 90px;
-  width: 20px; }
+  width: 20px;
+  z-index: 2000; }
   .rightLine .line {
     right: 7vh;
     margin: auto;
