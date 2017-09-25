@@ -21,11 +21,13 @@ function init() {
 	renderer.setSize( window.innerWidth, window.innerHeight);
 	renderer.setClearColor(0xededed);
 	container.appendChild( renderer.domElement );
-	container.style.position = "absolute";
-	container.style.zIndex = 5000;
+	// container.style.position = "absolute";
+	// container.style.zIndex = 5000;
 	
-	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-	camera.position.set(0, 0, 10);
+	// camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+	var width = window.innerWidth, height = window.innerHeight;
+	camera = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 1000 );
+	camera.position.set(0, 0, 1);
 	controls = new THREE.OrbitControls(camera, renderer.domElement);
 	controls.rotateSpeed = 2.0;
 	controls.panSpeed = 0.8;
@@ -46,7 +48,7 @@ function init() {
 
 	var texture = new THREE.TextureLoader().load('assets/img/render.png');
 	texture.wrapT = texture.wrapS = THREE.RepeatWrapping;
-	var geom = new THREE.PlaneBufferGeometry(1, 1, 256, 256);
+	var geom = new THREE.PlaneBufferGeometry(1, 2, 256, 256);
 	// var geom = new THREE.SphereBufferGeometry(1, 1, 256, 256);
 
 	shapeMat = new THREE.ShaderMaterial({
@@ -64,19 +66,21 @@ function init() {
 	});
 
 	shape = new THREE.Mesh(geom, shapeMat);
-	var s = 5;
+	var s = 1000;
 	shape.scale.set(s, s, s);
 	shape.rotation.x = Math.PI/2.5;
-	// shape.position.set()
+	shape.position.set(100, 500, 0);
 	scene.add(shape);
+
+	camera.position.set(2.64, -2.77, -.14);
 
 	window.addEventListener('resize', resize);
 }
 
 function update(){
 	time = new Date().getTime() - startTime;
-	shapeMat.uniforms['time'].value += .0005;
-	// camera.lookAt(scene.position);
+	shapeMat.uniforms['time'].value += .00025;
+	camera.lookAt(scene.position);
 	controls.update();
 }
 
