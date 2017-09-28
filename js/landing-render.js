@@ -3,12 +3,21 @@ var angle = 0;
 var clock = new THREE.Clock();
 var time; var startTime = new Date().getTime();
 
-var mouseX = 0, mouseY = 0;
-			var windowHalfX = window.innerWidth / 2;
-			var windowHalfY = window.innerHeight / 2;
+var mouse = new THREE.Vector2();
+
+var mouseColor = new THREE.Vector3();
 
 var box;
 var shape;
+
+function onMouseMove( event ) {
+
+	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+	mouseColor.x = mouse.x, mouseColor.y = 0, mouseColor.z = mouse.y;
+
+}
 
 function resize(){
 	camera.aspect = window.innerWidth / window.innerHeight;
@@ -63,6 +72,7 @@ function init() {
 			"time" : { type: "f", value : 0.0 },
 			"texture" : { type : "t", value : texture},
 			"speed" : { type : "f", value : 1.},
+			"mouseColor" : { type : "v3", value : mouseColor }
 		},
 		side : THREE.DoubleSide,
 		depthTest: false,
@@ -80,6 +90,7 @@ function init() {
 	camera.position.set(2.64, -2.77, -.14);
 
 	window.addEventListener('resize', resize);
+	// window.addEventListener('mousemove', onMouseMove);
 }
 
 function update(){

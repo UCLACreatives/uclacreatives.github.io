@@ -272,10 +272,30 @@ body{
 	a{	
 		color: $black;
 		margin-left: 125px;
+		position: relative;
 	}
+	a::before{
+		content: "";
+		width: 100%;
+		height: 2px;
+		background-color: $peach;
+		position: absolute;
+		bottom: 0;
+		@include transform-origin(center);
+		@include transform(scaleX(0));
+		transition: .15s ease;
+	}
+
+	a:visited::before{
+		@include transform(scaleX(1));
+	}
+
 	a:hover{
 		cursor: pointer;
-		
+	}
+
+	a:hover::before{
+		 @include transform(scaleX(1));
 	}
 }
 
@@ -319,14 +339,13 @@ body{
 		font-size: 20px;
 		i{	
 			color: $black;
-			@include transition(none !important);
+			@include transition(all .15s ease !important);
 			background: transparent !important;
 		}
-	}
-
-	a:hover{
-		cursor: pointer;
-		color: $blue;
+		i:hover{
+			cursor: pointer;
+			color: $peach;
+		}
 	}
 }
 
@@ -390,7 +409,7 @@ body{
 	left: -100%;
 	z-index: 2000;
 	top: 0;
-	transition: left .7s, opacity .4s;
+	transition: left .5s, opacity .4s;
 	overflow: hidden;
 	opacity: 0;
 }
@@ -425,12 +444,12 @@ body{
 		a::before{
 			content: "";
 			width: 100%;
-			height: 2px;
+			height: 1px;
 			background-color: $peach;
 			position: absolute;
 			bottom: 0;
 			@include transform-origin(center);
-			@include transform(scaleX(0));
+			@include transform(scaleX(1));
 			transition: .15s ease;
 		}
 
@@ -546,7 +565,8 @@ body{
 		a{
 			font-family: $Calibre;
 			color: $white;
-			font-size: 17px;
+			font-weight: 500;
+			font-size: 20px;
 			transition: .3s;
 		}
 	}

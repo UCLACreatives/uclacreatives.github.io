@@ -101,31 +101,6 @@
 					<a>2016</a>
 				</div>
 			</div>
-
-			<div class="projectsYear">
-				<!-- <div>
-					<ul>
-						<li>
-							<a class="calibre">Visualizing LA</a>
-						</li>
-						<li>
-							<a class="calibre">Synaesthetic</a>
-						</li>
-						<li>
-							<a class="calibre">A Day In LA</a>
-						</li>
-						<li>
-							<a class="calibre">Unity VR</a>
-						</li>
-						<li>
-							<a class="calibre">Physical States</a>
-						</li>
-					</ul>
-				</div> -->
-				<div class="year">
-					<a>2017</a>
-				</div>
-			</div>
 		</div>
 
 		<div id="projects">
@@ -139,7 +114,7 @@
 				</div>
 				<div class="demo">
 					<div></div>
-					<a href="http://visualizingla.com/">LINK</a>
+					<a href="http://visualizingla.com/">DEMO</a>
 				</div>
 			</div>
 
@@ -153,7 +128,7 @@
 				</div>
 				<div class="demo">
 					<div></div>
-					<a>LINK</a>
+					<a href="http://synaesthetic.io">DEMO</a>
 				</div>
 			</div>
 
@@ -167,7 +142,7 @@
 				</div>
 				<div class="demo">
 					<div></div>
-					<a>LINK</a>
+					<a href="http://uclacreatives.github.io/a-day-in-la">DEMO</a>
 				</div>
 			</div>
 
@@ -178,10 +153,6 @@
 				<div class="projectDescription">
 					<h1>Unity VR</h1>
 					<p>Embrace your inner child.</p>
-				</div>
-				<div class="demo">
-					<div></div>
-					<a>LINK</a>
 				</div>
 			</div>
 
@@ -195,7 +166,7 @@
 				</div>
 				<div class="demo">
 					<div></div>
-					<a>LINK</a>
+					<a href="http://physicalstates.io">DEMO</a>
 				</div>
 			</div>
 		</div>
@@ -228,7 +199,7 @@
 
 			Well, Creative Labs is just that! We seek to bridge the gap between north and south campus at UCLA by bringing passionate and creative students together to work on cool projects.<br /><br />
 
-			We also serve as a mini agency to individuals or small companies who have design challenges involving branding, web and mobile design and helps them solve those by the collaboration of talented students at UCLA. here.</p>
+			We also serve as a mini agency to individuals or small companies who have design challenges involving branding, web and mobile design and helps them solve those by the collaboration of talented students at UCLA. </p>
 		</div>
 	</div>
 
@@ -252,11 +223,7 @@
 		</div>
 		<div class="main">
 			<h1 class="title">Who Can Join?</h1>
-			<p class="bodyText">Have you ever wanted to join a creative community at UCLA where you can collaborate on real life projects, share skills, and just hangout?<br /><br />
-
-			Well, Creative Labs is just that! We seek to bridge the gap between north and south campus at UCLA by bringing passionate and creative students together to work on cool projects.<br /><br />
-
-			We also serve as a mini agency to individuals or small companies who have design challenges involving branding, web and mobile design and helps them solve those by the collaboration of talented students at UCLA. here.</p>
+			<p class="bodyText">People interested in: finding problems, solving problems, doing things better and meeting people. Experience in any of these is a bonus, too: UI+UX, design, branding & identity, graphic & web design, motion graphics, illustrations, front end dev, back end, iOS/Android. Creative Labs takes people from all disciplines and skill levels.</p>
 		</div>
 	</div>
 </body>
@@ -318,6 +285,7 @@
 	void main() {
 
 		float n = fbm(position.xy + time*5.);
+
 		vec3 modifiedPos = position+n*normal;
 
 		vUv = uv + n*n;
@@ -331,11 +299,13 @@
 
 <script type="fsh" id="fragmentShader">
 	uniform float time;
+	uniform vec3 mouseColor;
 
 	varying vec2 vUv;
 	varying vec4 color;
 	
 	void main(){
+
 		gl_FragColor = vec4(color.rgb, .9);
 	}
 

@@ -16,9 +16,7 @@ function toggleProjectsPage(){
 		projectsLink.style.color = '#F8FBFC';
 		bars[0].style.backgroundColor = '#F8FBFC';
 		bars[1].style.backgroundColor = '#F8FBFC';
-		//hide the about and who page
-		about.style.display = 'none';
-		who.style.display = 'none';
+		window.removeEventListener('scroll', onScroll);
 	}
 	else{
 		projectsLink.style.color = '#222428';
@@ -27,9 +25,7 @@ function toggleProjectsPage(){
 		projectsPage.style.left = -100 + "%";
 		projectsPage.style.opacity = 0;
 		projectsPageOn = 0;
-		//hide the about and who page
-		about.style.display = 'flex';
-		who.style.display = 'flex';
+		window.addEventListener('scroll', onScroll);
 	}
 }
 
