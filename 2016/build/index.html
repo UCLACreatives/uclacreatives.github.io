@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+    class="no-js"
+    lang="en"
+    data-ng-app="ua5App"
+    ng-strict-di="true"
+    data-ng-cloak
+    data-app>
+    <head>
+        <meta charset="utf-8">
+        <meta name="fragment" content="!">
+        <base href="/">
+        <link
+            href="_build/assets/css/app.css"
+            rel="stylesheet"
+            type="text/css">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title ng-bind="ngMeta.title"></title>
+        <meta content="Base Angular">
+        <meta
+            name="description"
+            content="{{ ngMeta.description }}">
+        <meta
+            property="og:description"
+            content="{{ ngMeta.description }}">
+        <meta
+            property="og:image"
+            content="{{ ngMeta.image }}">
+        <meta
+            property="og:site_name"
+            content="Site Name">
+        <meta
+            property="og:url"
+            content="{{ ngMeta.url }}">
+        <meta
+            property="og:type"
+            content="website">
+        <meta
+            name="twitter:card"
+            content="summary_large_image">
+        <meta
+            name="twitter:title"
+            content="{{ ngMeta.title }}">
+        <meta
+            property="twitter:image:src"
+            content="{{ ngMeta.image }}">
+        <link
+            href="assets/img/favicon.png"
+            rel="icon"
+            type="image/png">
+    </head>
+    <body ng-class="pageClass">
+        <noscript>
+            <div class="noscript">
+                Please enable JavaScript on your browser or upgrade to <a href="http://www.google.com/chrome/" target="_blank">Google Chrome</a> to use Base Angular.
+            </div>
+        </noscript>
+        <!-- <div header></div> -->
+        <div
+            ui-view
+            class="fade">
+        </div>
+            <script src="_build/vendor.js"></script>
+            <script src="_build/app.js"></script>
+    </body>
+</html>

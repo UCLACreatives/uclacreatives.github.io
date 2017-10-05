@@ -1,0 +1,33 @@
+// Reset headings
+@font-face {
+    font-family: 'Pixel';
+    src: url('../fonts/alte-din-1451-mittelschrift.regular-webfont.woff2') format('woff2'),
+         url('../fonts/alte-din-1451-mittelschrift.regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    margin: 0;
+    font-family: Pixel;
+}
+
+a {
+    cursor: pointer;
+}
+
+%h1 {
+    font-size: 20px;
+    font-weight: bold;
+
+    @include media($phone-only) {
+        font-size: 15px;
+    }
+}

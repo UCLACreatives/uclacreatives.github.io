@@ -1,0 +1,145 @@
+$white: #fff;
+$black:#000;
+$lightPurple: #7A56B9;
+$darkPurple: #4E347D;
+$pink: #E4627B;
+$tablet:767px;
+$desktop:1199px;
+
+@font-face {
+	font-family: 'Avenir Next';
+	src: url('../fonts/AvenirNext-regular.woff') format('woff'),
+	url('../fonts/AvenirNext-regular.ttf') format('ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin transition($time) {
+	transition:$time ease all;
+	-webkit-transition:$time ease all;
+	-moz-transition:$time ease all;
+	-ms-transition:$time ease all;
+	-o-transition:$time ease all;
+}
+
+body,html{
+	font-weight:100;
+	font-size: 16px;
+	line-height: 1.5;
+	background:#f3f3f3;
+	width:100%;
+	overflow-x:hidden;
+	margin:0 auto;
+
+}
+
+h1, h2, h3, h4, h5, h6, a{
+
+}
+
+.header{
+	width: 100%;
+	height: 80px;
+	background-color: $lightPurple;
+	position: fixed;
+	font-family: 'AvenirNext-regular';
+	color: $white;
+	z-index: 100;
+
+	.nav{
+		padding-top: 20px;
+		position: absolute;
+		right: 5%;
+	}
+
+	.nav-item{
+		position: relative;
+		float: left;
+		padding: 10px 20px 10px 20px; 
+		font-size: .9em;
+	}
+
+	.nav-item:hover{
+		border: 1px solid white;
+	}
+}
+
+.splash{
+	position: relative;
+	margin-top: 80px;
+	height: 70vh;
+	background: url('../assets/images/Projects.svg') center;
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-color: $pink;
+
+	.projects_title{
+		font-family: 'Montserrat';
+		position: absolute;
+		top: -5%;
+		left: 10%;
+		color: $white;
+		font-size: 4em;
+	}
+}
+
+.projects{
+	width: 100%;
+	height: auto;
+	position: relative;
+	.proj{
+		position: relative;
+		left: 20%;
+		background-color: $lightPurple; 
+		background-size: auto;
+		background-repeat: no-repeat;
+		height: 400px;
+		margin-top: 100px;
+
+		.proj_info{
+			position: relative;
+			top: 40%;
+			left: -10%;
+			height: 300px;
+			width: 500px;
+			margin-top: 100px;
+
+
+			
+
+			h2{
+				text-align: center;
+				position: relative;
+				top: 50%;
+				font-family: 'Montserrat';
+				color: $white;
+			}
+
+			p{
+				top: 50%;
+				position: relative;
+				font-family: 'Avenir Next';
+				color: $white;
+				text-align: center;
+			}
+			
+		}
+
+		#proj1{
+			background: url('../assets/images/Projects_icon_alzheimers.svg');
+			background-repeat: no-repeat;
+			background-color: $darkPurple;
+			background-position: 50% 20%; 
+			background-size: 100px 100px;
+			
+		}
+
+		#proj2{
+			background: url('../assets/images/Projects_icon_newspaper.svg');
+			background-repeat: no-repeat;
+			background-color: $pink;
+			background-position: 50% 20%; 
+			background-size: 100px 100px;	
+		}
+	}
+}

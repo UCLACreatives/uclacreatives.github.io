@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'Avenir Next';
+  src: url("../fonts/AvenirNext-regular.woff") format("woff"), url("../fonts/AvenirNext-regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal; }
+body, html {
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #f3f3f3;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0 auto; }
+
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #7A56B9;
+  position: fixed;
+  font-family: 'AvenirNext-regular';
+  color: #fff;
+  z-index: 100; }
+  .header .nav {
+    padding-top: 20px;
+    position: absolute;
+    right: 5%; }
+  .header .nav-item {
+    position: relative;
+    float: left;
+    padding: 10px 20px 10px 20px;
+    font-size: .9em; }
+  .header .nav-item:hover {
+    border: 1px solid white; }
+
+.splash {
+  position: relative;
+  margin-top: 80px;
+  height: 70vh;
+  background: url("../assets/images/Projects.svg") center;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-color: #E4627B; }
+  .splash .projects_title {
+    font-family: 'Montserrat';
+    position: absolute;
+    top: -5%;
+    left: 10%;
+    color: #fff;
+    font-size: 4em; }
+
+.projects {
+  width: 100%;
+  height: auto;
+  position: relative; }
+  .projects .proj {
+    position: relative;
+    left: 20%;
+    background-color: #7A56B9;
+    background-size: auto;
+    background-repeat: no-repeat;
+    height: 400px;
+    margin-top: 100px; }
+    .projects .proj .proj_info {
+      position: relative;
+      top: 40%;
+      left: -10%;
+      height: 300px;
+      width: 500px;
+      margin-top: 100px; }
+      .projects .proj .proj_info h2 {
+        text-align: center;
+        position: relative;
+        top: 50%;
+        font-family: 'Montserrat';
+        color: #fff; }
+      .projects .proj .proj_info p {
+        top: 50%;
+        position: relative;
+        font-family: 'Avenir Next';
+        color: #fff;
+        text-align: center; }
+    .projects .proj #proj1 {
+      background: url("../assets/images/Projects_icon_alzheimers.svg");
+      background-repeat: no-repeat;
+      background-color: #4E347D;
+      background-position: 50% 20%;
+      background-size: 100px 100px; }
+    .projects .proj #proj2 {
+      background: url("../assets/images/Projects_icon_newspaper.svg");
+      background-repeat: no-repeat;
+      background-color: #E4627B;
+      background-position: 50% 20%;
+      background-size: 100px 100px; }
+
+/*# sourceMappingURL=main.css.map */

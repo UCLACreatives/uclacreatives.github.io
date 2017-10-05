@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html
+    class="no-js"
+    lang="en"
+    data-ng-app="ua5App"
+    ng-strict-di="true"
+    data-ng-cloak
+    data-app>
+    <head>
+        <meta charset="utf-8">
+        <meta name="fragment" content="!">
+        <base href="/designjam/">
+        <link
+            href="assets/css/app.css"
+            rel="stylesheet"
+            type="text/css">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Pixel Design Jam</title>
+        <meta content="Base Angular">
+        <meta
+            name="description"
+            content="PIXEL is a design focused, day-long event where students will work in teams to solve a social challenge given by the City of LA">
+        <meta
+            property="og:description"
+            content="PIXEL is a design focused, day-long event where students will work in teams to solve a social challenge given by the City of LA">
+        <link
+            href="assets/img/favicon.png"
+            rel="icon"
+            type="image/png">
+    </head>
+    <body ng-class="pageClass">
+        <noscript>
+            <div class="noscript">
+                Please enable JavaScript on your browser or upgrade to <a href="http://www.google.com/chrome/" target="_blank">Google Chrome</a> to use Base Angular.
+            </div>
+        </noscript>
+        <!-- <div header></div> -->
+        <div
+            ui-view
+            class="fade">
+        </div>
+            <script src="vendor.js"></script>
+            <script src="app.js"></script>
+    </body>
+</html>
