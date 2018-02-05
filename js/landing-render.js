@@ -25,7 +25,7 @@ function init() {
     container.appendChild( renderer.domElement );
     
     camera = new THREE.PerspectiveCamera( 100, window.innerWidth / window.innerHeight, 1, 1000 );
-    camera.position.set(0, 0, 125);
+    camera.position.set(0, 0, 75);
     // controls = new THREE.OrbitControls(camera, renderer.domElement);
     // controls.rotateSpeed = 2.0;
     // controls.panSpeed = 0.8;
@@ -38,17 +38,6 @@ function init() {
     var shadowLight = new THREE.DirectionalLight(0xffffff, .5);
 
     shadowLight.position.set(150, 75, 150);
-
-    shadowLight.castShadow = true;
-    shadowLight.shadow.camera.left = -75;
-    shadowLight.shadow.camera.right = 75;
-    shadowLight.shadow.camera.top = 75;
-    shadowLight.shadow.camera.bottom = -75;
-    shadowLight.shadow.camera.near = 1;
-    shadowLight.shadow.camera.far = 1000;
-
-    shadowLight.shadow.mapSize.width = 1024;
-    shadowLight.shadow.mapSize.height = 1024;
 
     var shadowLight2 = shadowLight.clone();
     shadowLight2.castShadow = false;
@@ -119,7 +108,7 @@ function init() {
         roughness: .06
     }));
 
-    var numShapes = 25;
+    var numShapes = 10;
     group = new THREE.Group();
 
     for(var i=0; i<numShapes; i++){
