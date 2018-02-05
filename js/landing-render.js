@@ -1,111 +1,181 @@
-var camera, scene, renderer, controls, gui;
-var angle = 0;
-var clock = new THREE.Clock();
-var time; var startTime = new Date().getTime();
+var camera, scene, renderer, gui, composer;
+var models = ['apple', 'starfruit'];
+
+var geomData = [], matData = [], group;
 
 var mouse = new THREE.Vector2();
 
-var mouseColor = new THREE.Vector3();
-
-var box;
-var shape;
-
-function onMouseMove( event ) {
-
-	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-	mouseColor.x = mouse.x, mouseColor.y = 0, mouseColor.z = mouse.y;
-
-}
-
 function resize(){
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
-	renderer.setSize( window.innerWidth, window.innerHeight );
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
 }
 
 function init() {
-	var container = document.getElementById( 'container' );
-	renderer = new THREE.WebGLRenderer({antialias: true});
-	renderer.shadowMap.enabled = true;
-	renderer.shadowMap.type = THREE.PCSoftShadowMap;
-	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( window.innerWidth, window.innerHeight);
-	renderer.setClearColor(0xededed);
-	container.appendChild( renderer.domElement );
-	// container.style.position = "absolute";
-	// container.style.zIndex = 5000;
-	
-	// camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-	var width = window.innerWidth, height = window.innerHeight;
-	camera = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 1000 );
-	camera.position.set(0, 0, 1);
-	// controls = new THREE.OrbitControls(camera, renderer.domElement);
-	// controls.autoRotate = true;
-	// controls.rotateSpeed = 2.0;
-	// controls.panSpeed = 0.8;
-	// controls.zoomSpeed = 1.5;
 
-	scene = new THREE.Scene();
+    var container = document.getElementById( 'container' );
+    renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCSoftShadowMap;
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0xbfe7ff);
+    container.appendChild( renderer.domElement );
+    
+    camera = new THREE.PerspectiveCamera( 100, window.innerWidth / window.innerHeight, 1, 1000 );
+    camera.position.set(0, 0, 125);
+    // controls = new THREE.OrbitControls(camera, renderer.domElement);
+    // controls.rotateSpeed = 2.0;
+    // controls.panSpeed = 0.8;
+    // controls.zoomSpeed = 1.5;
 
-	var directionalLight = new THREE.DirectionalLight(0xffffff, .7);
-	directionalLight.position.set(1, -1, 0).normalize();
-	directionalLight.castShadow = true;
-	var ambientLight = new THREE.AmbientLight(0xffffff);
-	var pointLight = new THREE.PointLight(0xffffff);
-	pointLight.position.set(0, 0, 0);
+    scene = new THREE.Scene();
 
-	scene.add(ambientLight);
-	scene.add(directionalLight);
-	scene.add(pointLight);
+    var hemisphereLight = new THREE.HemisphereLight(0xfceafc, 0x000000, .8)
 
-	var texture = new THREE.TextureLoader().load('assets/img/render.png');
-	texture.wrapT = texture.wrapS = THREE.RepeatWrapping;
-	var geom = new THREE.PlaneBufferGeometry(1, 2, 256, 256);
-	// var geom = new THREE.SphereBufferGeometry(1, 1, 256, 256);
+    var shadowLight = new THREE.DirectionalLight(0xffffff, .5);
 
-	shapeMat = new THREE.ShaderMaterial({
-		transparent: true,
-		// wireframe: true,
-		uniforms : {
-			"time" : { type: "f", value : 0.0 },
-			"texture" : { type : "t", value : texture},
-			"speed" : { type : "f", value : 1.},
-			"mouseColor" : { type : "v3", value : mouseColor }
-		},
-		side : THREE.DoubleSide,
-		depthTest: false,
-		vertexShader : document.getElementById('vertexShader').textContent,
-		fragmentShader : document.getElementById('fragmentShader').textContent
-	});
+    shadowLight.position.set(150, 75, 150);
 
-	shape = new THREE.Mesh(geom, shapeMat);
-	var s = 1000;
-	shape.scale.set(s, s, s);
-	shape.rotation.x = Math.PI/2.5;
-	shape.position.set(100, 500, 0);
-	scene.add(shape);
+    shadowLight.castShadow = true;
+    shadowLight.shadow.camera.left = -75;
+    shadowLight.shadow.camera.right = 75;
+    shadowLight.shadow.camera.top = 75;
+    shadowLight.shadow.camera.bottom = -75;
+    shadowLight.shadow.camera.near = 1;
+    shadowLight.shadow.camera.far = 1000;
 
-	camera.position.set(2.64, -2.77, -.14);
+    shadowLight.shadow.mapSize.width = 1024;
+    shadowLight.shadow.mapSize.height = 1024;
 
-	window.addEventListener('resize', resize);
-	// window.addEventListener('mousemove', onMouseMove);
+    var shadowLight2 = shadowLight.clone();
+    shadowLight2.castShadow = false;
+    shadowLight2.intensity = .2;
+    shadowLight2.position.set(-150, 75, -150);
+
+    var shadowLight3 = shadowLight.clone();
+    shadowLight3.castShadow = false;
+    shadowLight3.intensity = .1;
+    shadowLight3.position.set(0, 125, 0);
+
+    scene.add(hemisphereLight);
+    scene.add(shadowLight);
+    scene.add(shadowLight2);
+    scene.add(shadowLight3);
+
+    geomData.push(new THREE.SphereGeometry(1, 64, 64));
+    geomData.push(new THREE.BoxGeometry(1, 1, 1,));
+    geomData.push(new THREE.ConeGeometry(1, 1, 32));
+    geomData.push(new THREE.TetrahedronGeometry(1));
+    geomData.push(new THREE.TorusKnotGeometry(1, .4, 64, 64));
+
+    // matData.push(new THREE.MeshStandardMaterial({
+    //     color: 0xd9486b,
+    //     emissive: 0x790f15,
+    //     roughness: .14,
+    //     flatShading: false,
+    //     metalness: .3
+    // }));
+
+    // matData.push(new THREE.MeshStandardMaterial({
+    //     color: 0xb3f28b,
+    //     emissive: 0x68841f,
+    //     metalness: .5,
+    //     flatShading: false,
+    //     roughness: .06
+    // }));
+
+    matData.push(new THREE.MeshStandardMaterial({
+        color: 0xfcfa37,
+        emissive: 0xbd4215,
+        metalness: .5,
+        flatShading: false,
+        roughness: .06
+    }));
+
+    matData.push(new THREE.MeshStandardMaterial({
+        color: 0x5c70fb,
+        emissive: 0x1235ae,
+        roughness: 0,
+        flatShading: false,
+        metalness: 0
+    }));
+
+    matData.push(new THREE.MeshStandardMaterial({
+        color: 0xbe9a47,
+        emissive: 0x676925,
+        roughness: .16,
+        flatShading: false,
+        metalness: 0
+    }));
+
+    matData.push(new THREE.MeshStandardMaterial({
+        color: 0xb3f28b,
+        emissive: 0x68841f,
+        metalness: .5,
+        flatShading: false,
+        roughness: .06
+    }));
+
+    var numShapes = 25;
+    group = new THREE.Group();
+
+    for(var i=0; i<numShapes; i++){
+
+        var geom = geomData[Math.floor(Math.random()*geomData.length)];
+        var mat = matData[Math.floor(Math.random()*matData.length)]
+        var mesh = new THREE.Mesh( geom, mat );
+        var s = 4+Math.random()*10;
+        mesh.scale.set(s, s, s);
+
+        mesh.position.set( Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5 ).normalize();
+        mesh.position.multiplyScalar( Math.random() * 200 );
+        mesh.rotation.set( Math.random() * 2, Math.random() * 2, Math.random() * 2 );
+        group.add( mesh );
+
+    }
+
+    scene.add(group);
+
+    window.addEventListener( 'resize', resize );
+
 }
 
+
 function update(){
-	time = new Date().getTime() - startTime;
-	shapeMat.uniforms['time'].value += .00025;
-	// camera.lookAt(scene.position);
-	// controls.update();
+    group.rotation.y+=.0015;
+    group.rotation.z+=.001;
 }
 
 function animate(){
-	update();
-	camera.lookAt( scene.position );
-	renderer.render(scene, camera);
-	window.requestAnimationFrame(animate);
+    update();
+    // composer.render();
+    renderer.render(scene, camera);
+    window.requestAnimationFrame(animate);
 }
 
-init();
-animate();
+THREE.DefaultLoadingManager.onLoad = function ( ) {
+
+    // document.getElementById('loading').style.display = 'none';
+    init();
+    animate();
+
+};
+
+var loader = new THREE.JSONLoader();
+
+for(var i=0; i<models.length; i++){
+    var path = 'assets/' + models[i] + '.json';
+
+    loader.load(
+
+        path, 
+
+        function(geom, mat){
+            geomData.push(geom);
+        }
+
+    )
+}

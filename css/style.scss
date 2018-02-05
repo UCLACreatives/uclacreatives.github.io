@@ -662,16 +662,6 @@ body{
 }
 
 #who{
-	background-color: $darkBlue;
-	.main{
-		.title{
-			color: $white;
-			border-bottom: $white 4px solid;
-		}
-		.bodyText{
-			color: $white;
-		}
-	}
 	.blobs{
 		div:first-child{
 			width: 1100px;
